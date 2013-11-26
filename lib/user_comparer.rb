@@ -16,7 +16,11 @@ module UserComparer
   		  config.access_token         = ENV['OAUTH_TOKEN']
   		  config.access_token_secret  = ENV['OAUTH_TOKEN_SECRET']
   		end
+
+  		  client.user(@username).followers_count
+  		end
   	end
+  end
 
   class Comparer
   	def initialize(user1, user2)
@@ -26,6 +30,6 @@ module UserComparer
 
   	def compare
   	end
-
   end
 end
+
