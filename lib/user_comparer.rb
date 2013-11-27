@@ -17,8 +17,7 @@ module UserComparer
   		  config.access_token_secret  = ENV['OAUTH_TOKEN_SECRET']
   		end
 
-  		  client.user(@username).followers_count
-  		end
+  		client.user(@username).followers_count
   	end
   end
 
@@ -29,7 +28,15 @@ module UserComparer
   	end
 
   	def compare
+  		if (@user1.followers > @user2.followers)
+  			return @user1.username
+  		elsif (@user1.followers < @user2.followers)
+  			return @user2.username
+  		else 
+  			return "theres a tie"
+  		end
   	end
   end
 end
+
 
